@@ -125,7 +125,7 @@ async function sendMessage(text) {
 });
 
 const data = await response.json();
-    const reply = data.content?.[0]?.text || "I'm sorry, I couldn't generate a response. Please try again.";
+    const reply = data.reply || "I'm sorry, I couldn't generate a response. Please try again.";
 
     removeTyping(typingId);
     appendMessage('bot', reply);
