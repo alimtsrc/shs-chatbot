@@ -248,7 +248,7 @@ export default async function handler(req, res) {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        model: "llama3-8b-8192",
+        model: "llama-3.1-8b-instant",
         messages,
         temperature: 0.7,
         max_tokens: 1024
@@ -256,11 +256,10 @@ export default async function handler(req, res) {
     });
 
     if (!response.ok) {
-      const err = await response.json();
-      console.error("Groq API error:", err);
-      return res.status(500).json({ reply: "AI service error. Please try again." });
-    }
-
+  const err = await response.json();
+  console.error("Groq API error:", JSON.stringify(err)); // ✅ dagdag mo ito
+  return res.status(500).json({ reply: "AI service error. Please try again." });
+}
     const data = await response.json();
     const reply = data.choices[0].message.content;
 
