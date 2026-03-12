@@ -115,10 +115,13 @@ async function sendMessage(text) {
   const typingId = showTyping();
 
   try {
-    const response = await fetch("/api/chatbot", {
+   const response = await fetch("/api/chatbot", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({ message: text })
+  body: JSON.stringify({
+    message: text,
+    history: conversationHistory.slice(-10) // last 10 messages lang para hindi mahal
+  })
 });
 
 const data = await response.json();
