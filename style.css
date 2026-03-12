@@ -211,7 +211,6 @@ body {
   position: absolute; inset: -3px; border-radius: 50%;
   border: 2px solid transparent;
   background: linear-gradient(135deg, var(--green-light), transparent, var(--green-main)) border-box;
-  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out; mask-composite: exclude;
   animation: spin 8s linear infinite;
 }

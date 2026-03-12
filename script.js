@@ -115,23 +115,13 @@ async function sendMessage(text) {
   const typingId = showTyping();
 
   try {
-    const response = await fetch(API_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: MODEL,
-        max_tokens: 1000,
-        system: SYSTEM_PROMPT,
-        messages: conversationHistory,
-      }),
-    });
+    const response = await fetch("/api/chatbot", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ message: text })
+});
 
-    if (!response.ok) {
-      const err = await response.json().catch(() => ({}));
-      throw new Error(err.error?.message || `HTTP ${response.status}`);
-    }
-
-    const data = await response.json();
+const data = await response.json();
     const reply = data.content?.[0]?.text || "I'm sorry, I couldn't generate a response. Please try again.";
 
     removeTyping(typingId);
