@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>UNIDA AI Assistant</title>
+  <title>AIMbassador — UCC AI Assistant</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
@@ -11,146 +11,94 @@
 </head>
 <body>
 
-  <!-- Animated background -->
   <div class="bg-overlay"></div>
-  <div class="circuit-lines"></div>
 
   <div class="app-wrapper">
 
     <!-- Sidebar -->
     <aside class="sidebar">
       <div class="sidebar-logo">
-        <img src="ucc logo.png" alt="UNIDA Logo" class="logo-img" />
+        <img src="ucc logo.png" alt="UCC Logo" class="logo-img" />
         <div class="logo-text">
-          <span class="logo-title">UNIDA</span>
-          <span class="logo-sub">AI Assistant</span>
+          <span class="logo-title">AImbassador</span>
+          <span class="logo-sub">UCC AI Assistant</span>
         </div>
       </div>
 
-      <nav class="sidebar-nav">
-        <p class="nav-label">MENU</p>
-        <button class="nav-item active" data-tab="chat">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-          <span>Chat</span>
-        </button>
-        <button class="nav-item" data-tab="history">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-          <span>History</span>
-        </button>
-        <button class="nav-item" data-tab="about">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-          <span>About</span>
-        </button>
-      </nav>
+      <div class="sidebar-divider"></div>
+
+      <div class="sidebar-info">
+        <p class="info-label">ABOUT UCC</p>
+        <p class="info-text">Unida Christian Colleges<br/>Anabu 1F, Imus, Cavite</p>
+        <p class="info-text" style="margin-top:8px;">Est. <strong>1966</strong> · Inc. <strong>1996</strong></p>
+      </div>
+
+      <div class="sidebar-motto">
+        <p>"Aim High Dream High<br/>Ambassadors!"</p>
+      </div>
 
       <div class="sidebar-footer">
         <div class="status-badge">
           <span class="status-dot"></span>
-          <span>AI Online</span>
+          <span>AImbassador Online</span>
         </div>
-        <p class="founded">Est. 1996</p>
+        <p class="verse">Proverbs 22:6</p>
       </div>
     </aside>
 
     <!-- Main Content -->
     <main class="main-content">
 
-      <!-- CHAT TAB -->
-      <section class="tab-panel active" id="tab-chat">
-        <div class="chat-header">
-          <div class="chat-header-info">
-            <div class="ai-avatar">
-              <div class="avatar-ring"></div>
-              <span>AI</span>
-            </div>
-            <div>
-              <h2 class="chat-title">UNIDA Assistant</h2>
-              <p class="chat-subtitle">Your academic companion — ask anything</p>
+      <!-- CHAT -->
+      <div class="chat-header">
+        <div class="chat-header-info">
+          <div class="ai-avatar">
+            <div class="avatar-ring"></div>
+            <span>AI</span>
+          </div>
+          <div>
+            <h2 class="chat-title">AImbassador</h2>
+            <p class="chat-subtitle">Your UCC guide — ask me anything about the school!</p>
+          </div>
+        </div>
+        <button class="clear-btn" id="clearBtn" title="Clear chat">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14H6L5 6"></path><path d="M10 11v6M14 11v6"></path></svg>
+        </button>
+      </div>
+
+      <div class="messages-area" id="messagesArea">
+        <div class="message bot-message" id="welcomeMsg">
+          <div class="msg-avatar bot-avatar">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+          </div>
+          <div class="msg-bubble">
+            <p>Hi, Ambassador! 👋 I'm <strong>AImbassador</strong>, your official UCC AI guide.</p>
+            <p style="margin-top:6px;">Aim High, Dream High! How can I help you today? 🎓</p>
+            <div class="quick-actions">
+              <button class="quick-btn" data-msg="What SHS strands are offered at UCC?">📚 SHS Strands</button>
+              <button class="quick-btn" data-msg="What are the admission requirements?">📋 Admission</button>
+              <button class="quick-btn" data-msg="How much is the tuition fee?">💰 Tuition Fees</button>
+              <button class="quick-btn" data-msg="What scholarships does UCC offer?">🎓 Scholarships</button>
+              <button class="quick-btn" data-msg="Tell me about UCC's history">🏫 UCC History</button>
+              <button class="quick-btn" data-msg="What sports and activities are available?">⚽ Activities</button>
             </div>
           </div>
-          <button class="clear-btn" id="clearBtn" title="Clear chat">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14H6L5 6"></path><path d="M10 11v6M14 11v6"></path></svg>
+        </div>
+      </div>
+
+      <div class="input-area">
+        <div class="input-wrapper">
+          <textarea
+            id="userInput"
+            placeholder="Ask AIMbassador anything about UCC..."
+            rows="1"
+          ></textarea>
+          <button class="send-btn" id="sendBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
           </button>
         </div>
-
-        <div class="messages-area" id="messagesArea">
-          <!-- Welcome message -->
-          <div class="message bot-message" id="welcomeMsg">
-            <div class="msg-avatar bot-avatar">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
-            </div>
-            <div class="msg-bubble">
-              <p>Greetings! I am the <strong>UNIDA AI Assistant</strong>. I'm here to help you with academic inquiries, school information, and any questions about Unida Christian Colleges Inc.</p>
-              <p style="margin-top:8px;">How can I assist you today? 🎓</p>
-              <div class="quick-actions">
-                <button class="quick-btn" data-msg="What courses are offered at UNIDA?">📚 Courses Offered</button>
-                <button class="quick-btn" data-msg="Tell me about UNIDA's history">🏫 School History</button>
-                <button class="quick-btn" data-msg="What are the admission requirements?">📋 Admission Info</button>
-                <button class="quick-btn" data-msg="What are the school's core values?">✝️ Core Values</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="input-area">
-          <div class="input-wrapper">
-            <textarea
-              id="userInput"
-              placeholder="Ask UNIDA Assistant anything..."
-              rows="1"
-            ></textarea>
-            <button class="send-btn" id="sendBtn">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-            </button>
-          </div>
-          <p class="disclaimer">UNIDA AI may make mistakes. Always verify with official school channels.</p>
-        </div>
-      </section>
-
-      <!-- HISTORY TAB -->
-      <section class="tab-panel" id="tab-history">
-        <div class="panel-header">
-          <h2>Conversation History</h2>
-          <p>Your recent chat sessions</p>
-        </div>
-        <div class="history-list" id="historyList">
-          <div class="empty-state">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-            <p>No conversation history yet.</p>
-            <span>Start a chat to see it here.</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- ABOUT TAB -->
-      <section class="tab-panel" id="tab-about">
-        <div class="panel-header">
-          <h2>About UNIDA</h2>
-          <p>Unida Christian Colleges Inc.</p>
-        </div>
-        <div class="about-content">
-          <div class="about-card">
-            <div class="about-icon">✝️</div>
-            <h3>Our Mission</h3>
-            <p>To provide quality Christian education that develops the total person — spiritually, intellectually, and professionally — for service to God and country.</p>
-          </div>
-          <div class="about-card">
-            <div class="about-icon">🎓</div>
-            <h3>Our Vision</h3>
-            <p>A premier Christian institution producing globally competitive graduates grounded in faith and excellence since 1996.</p>
-          </div>
-          <div class="about-card">
-            <div class="about-icon">🤖</div>
-            <h3>About this AI</h3>
-            <p>The UNIDA AI Assistant is powered by Claude (Anthropic) and trained to help students, faculty, and visitors with school-related inquiries.</p>
-          </div>
-          <div class="about-card">
-            <div class="about-icon">📍</div>
-            <h3>Founded</h3>
-            <p>Established in <strong>1996</strong>, UNIDA Christian Colleges Inc. has been a pillar of Christian higher education in the Philippines.</p>
-          </div>
-        </div>
-      </section>
+        <p class="disclaimer">AImbassador may make mistakes. Always verify with the UCC Admissions Office at (046) 472-3755.</p>
+      </div>
 
     </main>
   </div>
